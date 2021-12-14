@@ -1,0 +1,38 @@
+@import '../../../ultis';
+
+.action-btns {
+  @include flex(center, $c: false);
+  gap: 1vw;
+  width: 100%;
+  button {
+    @include flex(center, $c: false);
+    border: solid 1.25px;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border-radius: 100vw;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+}
+
+.create-btn {
+  cursor: pointer;
+  position: absolute;
+  @include center;
+  top: 93%;
+  left: 10%;
+  padding: 0.5em 1rem;
+  border-radius: 0.25em;
+  font-weight: bold;
+  background-color: $mainGr;
+  color: white;
+  transition: 300ms all ease;
+  border: $mainGr solid 1.25px;
+  &:hover {
+    background-color: transparent;
+    color: $mainGr;
+  }
+}

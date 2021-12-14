@@ -1,0 +1,50 @@
+@import '../../../ultis';
+
+.admin-navbar {
+  width: 100vw;
+  height: 3rem;
+  background-color: $mainGr;
+  @include flex(space-between, $c: false);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  h2 {
+    margin-left: 3vw;
+    color: white;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+  }
+  p {
+    cursor: pointer;
+    color: white;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    margin-right: 3vw;
+  }
+}
+
+.sidebar {
+  position: sticky;
+  padding-top: 2rem;
+  height: 100%;
+  width: 100%;
+  padding-left: 1rem;
+  background-color: $secGr;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  box-shadow: inset 0px 0px 2rem 0.5rem rgba($color: #000000, $alpha: 0.5);
+  .side-Link {
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 0.25em;
+    padding-left: 0.25rem;
+    padding-block: 0.5rem;
+    width: 90%;
+    transition: all 300ms ease;
+    color: white;
+  }
+  .side-Link:hover {
+    background-color: rgb(190, 190, 190);
+  }
+}

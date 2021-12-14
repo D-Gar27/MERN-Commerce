@@ -1,0 +1,36 @@
+@import '../../ultis';
+
+.page-not-found {
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  @include flex(center, $c: true);
+  gap: 1.5em;
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: red;
+  }
+  p {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+  }
+  button {
+    @include flex(center, $c: false);
+    position: relative;
+    text-decoration: none;
+    color: $black;
+    padding: 0.3em 1em 0.3em 2.75em;
+    border: 2px solid currentColor;
+    border-radius: 0.25em;
+    .arrow {
+      transition: 300ms all ease;
+      position: absolute;
+      left: 20%;
+      top: 50%;
+      transform: translate(0, -50%);
+      font-size: 1rem;
+    }
+    &:hover .arrow {
+      transform: translate(-50%, -50%);
+    }
+  }
+}

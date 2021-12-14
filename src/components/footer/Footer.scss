@@ -1,0 +1,94 @@
+@import '../../ultis';
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.footer {
+  width: 100vw;
+  padding-block: 2rem;
+  padding-inline: 2rem;
+  @include flex(space-between, $c: false);
+  gap: 3%;
+  align-items: flex-start;
+  background-color: $thirdGr;
+  overflow: hidden;
+  margin-top: auto;
+
+  .about-mern {
+    width: 100%;
+    h1 {
+      font-size: 1.75rem;
+      font-family: 'Permanent Marker', cursive;
+    }
+    p {
+      margin-block: 1rem;
+      max-width: 40ch;
+      font-size: 0.9rem;
+    }
+    .social-media {
+      @include flex(flex-start, $c: false);
+      gap: 3%;
+      .social-icon {
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 100vw;
+        @include flex(center, $c: false);
+        &.facebook {
+          background-color: #3b5998;
+        }
+        &.instagram {
+          background-color: #8a3ab9;
+        }
+      }
+    }
+  }
+  .footer-links {
+    width: 100%;
+    .links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 1rem;
+      margin-top: 2rem;
+      .footer-link {
+        color: $black;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.9rem;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .footer-contact {
+    width: 100%;
+    .info {
+      margin-top: 2rem;
+      @include flex(flex-start, $c: true);
+      gap: 0.75rem;
+      p {
+        @include flex(flex-start, $c: false);
+        gap: 1em;
+      }
+      .cards {
+        margin-top: 0.5rem;
+        @include flex(flex-start, $c: false);
+        gap: 1em;
+        img {
+          width: 3rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  .footer {
+    width: calc(100vw - 1rem);
+    @include flex(center, $c: true);
+    gap: 2rem;
+    padding-block: 1.5rem;
+    padding-inline: 0;
+    overflow-x: hidden;
+    padding-left: 1rem;
+  }
+}

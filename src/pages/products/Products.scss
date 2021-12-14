@@ -1,0 +1,50 @@
+@import '../../ultis';
+
+.products-page {
+  overflow-x: hidden;
+  width: 100vw;
+  min-height: 100vh;
+  .clothes-type {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+  }
+  .filter {
+    margin-top: 2rem;
+    @include flex(space-between, $c: false);
+    width: 95%;
+    margin-inline: auto;
+    .left,
+    .right {
+      @include flex(flex-start, $c: false);
+      gap: 2%;
+      label {
+        @include flex(flex-start, $c: false);
+        gap: 0.5em;
+        select {
+          padding-block: 0.25em;
+          padding-right: 1.25em;
+        }
+      }
+    }
+    .right {
+      @include flex(flex-end, $c: false);
+    }
+  }
+}
+
+@media only screen and (max-width: $medium) {
+  .products-page {
+    .clothes-type {
+      margin-top: 1rem;
+      margin-left: 1rem;
+    }
+    .filter {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 0.75em;
+    }
+  }
+}

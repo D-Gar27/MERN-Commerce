@@ -1,0 +1,44 @@
+@import '../../ultis';
+
+.categories {
+  @include flex(space-evenly, $c: false);
+  flex-wrap: wrap;
+  padding-block: 5rem;
+  width: 100%;
+  gap: 2em;
+  .cate-item {
+    width: 100%;
+    max-width: 20rem;
+    height: 25rem;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    .text {
+      width: 100%;
+      height: 100%;
+      @include flex(center, $c: true);
+      gap: 1em;
+      h2 {
+        font-size: 2rem;
+        text-transform: uppercase;
+      }
+      button {
+        padding: 0.5em 1.5em;
+        font-weight: 500;
+        border: 1.5px solid currentColor;
+        background-color: white;
+        transition: 300ms all ease;
+        &:hover {
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  .cate-item {
+    transform: scale(0.9);
+  }
+}

@@ -1,0 +1,108 @@
+@import '../../ultis';
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.navbar {
+  width: 100vw;
+  height: 4rem;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  @include flex(center, $c: false);
+  .navbar-container {
+    @include flex(space-between, $c: false);
+    width: 100%;
+    max-width: 90rem;
+    padding-inline: 1rem;
+    margin-inline: auto;
+    .left,
+    .right {
+      width: 100%;
+      height: 100%;
+      gap: 1em;
+    }
+    .left {
+      @include flex(flex-start, $c: false);
+      .search {
+        @include flex(center, $c: false);
+        height: 100%;
+        input {
+          border: none;
+          border-bottom: 1.25px solid currentColor;
+          padding-bottom: 0.25em;
+          background-color: transparent;
+          outline: none;
+          display: none;
+        }
+        .searching {
+          display: block;
+        }
+      }
+    }
+    .right {
+      @include flex(flex-end, $c: false);
+      p {
+        cursor: pointer;
+        font-size: clamp(0.85rem, 3vw, 1rem);
+        position: relative;
+        &::after {
+          content: '';
+          background-color: black;
+          width: 100%;
+          height: 1.15px;
+          position: absolute;
+          left: 0;
+          bottom: -0.25em;
+          transform: scale(0);
+          transition: 300ms all ease;
+        }
+        &:hover:after {
+          transform: scale(1);
+        }
+      }
+    }
+    .middle {
+      h2 {
+        font-family: 'Permanent Marker', cursive;
+        font-size: clamp(1.5rem, 5vw, 2rem);
+      }
+    }
+  }
+}
+
+.log-out-modal {
+  z-index: 150;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  @include flex(center, $c: true);
+  background-color: rgba($color: white, $alpha: 0.25);
+  backdrop-filter: blur(1rem);
+  .log-out {
+    @include flex(center, $c: true);
+    gap: 10vh;
+    .btns {
+      @include flex(center, $c: false);
+      gap: 1rem;
+      button {
+        padding: 0.5em 3em;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 0.5em;
+        cursor: pointer;
+      }
+      .yes-btn {
+        background-color: rgb(255, 51, 15);
+        color: white;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  .search input {
+    max-width: 6rem;
+  }
+}

@@ -1,0 +1,168 @@
+@import '../../ultis';
+
+.cart {
+  width: 100vw;
+  overflow-x: hidden;
+  .cart-container {
+    width: 100%;
+    padding-block: 3rem;
+    .inCart-title {
+      width: 100%;
+      margin-left: 2rem;
+      margin-bottom: 2rem;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+    .items-in-cart {
+      width: 100%;
+      display: grid;
+      @include flex(center, $c: true);
+      row-gap: 3em;
+      margin: 0;
+      .items {
+        min-height: 50vh;
+        width: 100%;
+        @include flex(center, $c: true);
+        gap: 1rem;
+        padding: 0;
+        .product-item {
+          width: 100%;
+          min-height: 10rem;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+          row-gap: 5%;
+          grid-template-rows: auto;
+          justify-items: center;
+          align-items: center;
+          .product-img {
+            flex: 2;
+            width: 100%;
+            max-width: 8rem;
+            position: relative;
+            padding: 1rem;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+          .product-info {
+            @include flex(flex-start, $c: true);
+            gap: 1.25rem;
+            width: max-content;
+            width: 100%;
+            max-width: 16rem;
+            h4 {
+              font-size: clamp(0.9rem, 2vw, 1rem);
+            }
+          }
+          .amount {
+            @include flex(center, $c: true);
+            gap: 1rem;
+            width: max-content;
+            height: max-content;
+            .amount-control {
+              @include flex(center, $c: false);
+              p {
+                font-size: clamp(1rem, 3vw, 1.2rem);
+              }
+              .minus,
+              .plus {
+                font-weight: bold;
+              }
+              .num {
+                margin-inline: 1rem;
+              }
+            }
+            .price {
+              font-size: clamp(1.15rem, 3vw, 1.5rem);
+            }
+          }
+        }
+      }
+      .no-items {
+        width: 100%;
+        @include flex(center, $c: true);
+        background-color: blue;
+      }
+      .summary {
+        width: 90%;
+        padding: 1.5rem;
+        border: solid 2px $black;
+        @include flex(flex-start, $c: true);
+        max-width: 40rem;
+        gap: 2rem;
+        margin-inline: auto;
+        .order-info {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          column-gap: 4rem;
+          row-gap: 1rem;
+          width: 100%;
+        }
+        .btns {
+          @include flex(flex-start, $c: true);
+          gap: 1em;
+          .continue {
+            position: relative;
+            text-decoration: none;
+            color: $black;
+            padding: 0.3em 3em 0.3em 1em;
+            border: 2px solid currentColor;
+            .arrow {
+              transition: 300ms all ease;
+              position: absolute;
+              left: 80%;
+              top: 50%;
+              transform: translate(0, -50%);
+            }
+            &:hover .arrow {
+              transform: translate(50%, -50%);
+            }
+          }
+          .checkout {
+            text-decoration: none;
+            background-color: $mainGr;
+            border: 2px solid $mainGr;
+            padding: 0.3em 1.5em;
+            color: white;
+            font-weight: bold;
+            transition: 300ms all ease;
+            border-radius: 0.25em;
+            &:hover {
+              background-color: transparent;
+              color: $mainGr;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $medium) {
+  .summary {
+    margin-left: -3rem;
+  }
+  .amount {
+    flex-direction: row !important;
+  }
+  .product-info {
+    @include flex(flex-start, $c: true);
+    justify-content: center;
+    text-align: center;
+  }
+  .items-in-cart {
+    .items {
+      .product-item + .product-item {
+        margin-top: 3rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: $phone) {
+  .items {
+    .product-item {
+      transform: scale(0.9);
+    }
+  }
+}

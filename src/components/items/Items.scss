@@ -1,0 +1,78 @@
+@import '../../ultis';
+
+.popular-products-section {
+  width: 100%;
+  padding-block: 2rem;
+  display: grid;
+  place-items: center;
+  h1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+  }
+  .popular-products {
+    margin-top: 3rem;
+    margin-inline: auto;
+    width: 98%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    column-gap: 1.5em;
+    row-gap: 2em;
+  }
+}
+
+.product {
+  cursor: pointer;
+  position: relative;
+  margin-inline: auto;
+  width: 100%;
+  max-width: 10rem;
+  height: 15rem;
+  padding: 2rem;
+  background-color: rgba($color: $thirdGr, $alpha: 0.5);
+  overflow: hidden;
+  .product-img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  .icons {
+    position: absolute;
+    z-index: 10;
+    @include center;
+    width: 100%;
+    height: 100%;
+    @include flex(center, $c: false);
+    opacity: 0;
+    gap: 1.5em;
+    background-color: rgba($color: #000000, $alpha: 0.25);
+    div {
+      cursor: pointer;
+      @include flex(center, $c: false);
+      width: 3rem;
+      height: 3rem;
+      border-radius: 100vw;
+      background-color: rgba($color: white, $alpha: 0.5);
+      transition: 300ms ease all;
+      &:hover {
+        background-color: rgba($color: white, $alpha: 1);
+      }
+    }
+  }
+}
+
+.not-found-item {
+  min-height: 40vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.product:hover > .icons {
+  opacity: 1;
+}

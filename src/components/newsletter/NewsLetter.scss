@@ -1,0 +1,47 @@
+@import '../../ultis';
+
+.news-letter {
+  padding: 5% 3%;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  background-color: $thirdGr;
+  overflow-x: hidden;
+  h1 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+  }
+  h3 {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    margin-block: 2rem;
+  }
+  .news-form {
+    width: 100%;
+    @include flex(center, $c: false);
+    input,
+    button {
+      width: 100%;
+      max-width: 30rem;
+      border: none;
+      height: 2rem;
+    }
+    input {
+      padding-left: 1rem;
+    }
+    button {
+      cursor: pointer;
+      background-color: $secGr;
+      max-width: 5rem;
+      @include flex(center, $c: false);
+    }
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  .news-letter {
+    padding: 10% 0;
+    .news-form {
+      width: 95%;
+      margin-inline: auto;
+    }
+  }
+}
